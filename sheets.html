@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Sheets - The Sheet Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+        }
+        
+        .content {
+            padding: 60px 20px;
+        }
+        
+        .sheets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .sheet-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .sheet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+        
+        .sheet-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .sheet-card h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .sheet-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .sheet-card a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        
+        .sheet-card a:hover {
+            transform: scale(1.05);
+        }
+        
+        .coming-soon {
+            background: #f0f0f0;
+            border-color: #ccc;
+        }
+        
+        .coming-soon a {
+            background: #999;
+            cursor: not-allowed;
+        }
+        
+        .coming-soon a:hover {
+            transform: scale(1);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #333;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">📊 The Sheet Hub</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sheets.html">Sheets</a></li>
+                <li><a href="request.html">Request</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="page-title">
+        <div class="container">
+            <h1>Comparison Sheets</h1>
+            <p>Browse our comprehensive comparison databases</p>
+        </div>
+    </section>
+    
+    <section class="content">
+        <div class="container">
+            <div class="sheets-grid">
+                <div class="sheet-card" id="frames">
+                    <div class="sheet-icon">🚵</div>
+                    <h2>Enduro Frames</h2>
+                    <p>Compare different enduro bike frames from top manufacturers. View specs, prices, and features.</p>
+                    <a href="#">View Spreadsheet</a>
+                </div>
+                
+                <div class="sheet-card" id="forks">
+                    <div class="sheet-icon">🔧</div>
+                    <h2>Forks</h2>
+                    <p>Detailed fork specifications including travel, weight, suspension type, and pricing.</p>
+                    <a href="#">View Spreadsheet</a>
+                </div>
+                
+                <div class="sheet-card" id="shocks">
+                    <div class="sheet-icon">⚙️</div>
+                    <h2>Shocks</h2>
+                    <p>Shock absorber comparisons with specs, performance ratings, and cost analysis.</p>
+                    <a href="#">View Spreadsheet</a>
+                </div>
+                
+                <div class="sheet-card" id="brakes">
+                    <div class="sheet-icon">🛑</div>
+                    <h2>Brakes</h2>
+                    <p>Brake system specifications including stopping power, maintenance, and durability ratings.</p>
+                    <a href="#">View Spreadsheet</a>
+                </div>
+                
+                <div class="sheet-card" id="controllers">
+                    <div class="sheet-icon">🎮</div>
+                    <h2>Gaming Controllers</h2>
+                    <p>Compare gaming controllers from all major platforms with features, compatibility, and pricing.</p>
+                    <a href="#">View Spreadsheet</a>
+                </div>
+                
+                <div class="sheet-card" id="ebikes">
+                    <div class="sheet-icon">⚡</div>
+                    <h2>E-Bikes</h2>
+                    <p>E-bike models and specifications including range, motor power, battery capacity, and price.</p>
+                    <a href="#">View Spreadsheet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2026 The Sheet Hub. Created by Leo Ragone. All rights reserved.</p>
+    </footer>
+</body>
+</html>
