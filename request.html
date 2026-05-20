@@ -22,6 +22,9 @@
             color: white;
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         nav {
@@ -31,11 +34,26 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            width: 100%;
         }
         
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
         }
         
         nav ul {
@@ -159,7 +177,32 @@
             }
             
             nav ul {
-                gap: 1rem;
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+                padding: 1rem 0;
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            .hamburger {
+                display: flex;
             }
         }
     </style>
@@ -168,7 +211,12 @@
     <header>
         <nav>
             <div class="logo">📊 The Sheet Hub</div>
-            <ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="menuItems">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sheets.html">Sheets</a></li>
                 <li><a href="request.html">Request</a></li>
@@ -190,7 +238,7 @@
                     ✓ Thank you! Your request has been submitted successfully!
                 </div>
                 
-                <form id="requestForm">
+                <form id="requestForm" action="https://formspree.io/f/xyzqwerty" method="POST">
                     <div class="form-group">
                         <label for="name">Your Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -208,7 +256,7 @@
                     
                     <div class="form-group">
                         <label for="description">Description *</label>
-                        <textarea id="description" name="description" placeholder="Tell us what products or items you'd like compared..." required></textarea>
+                        <textarea id="description" name="message" placeholder="Tell us what products or items you'd like compared..." required></textarea>
                     </div>
                     
                     <button type="submit">Submit Request</button>
@@ -222,19 +270,18 @@
     </footer>
     
     <script>
-        document.getElementById('requestForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // Reset form
-            this.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(function() {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
+        const hamburger = document.getElementById('hamburger');
+        const menuItems = document.getElementById('menuItems');
+        
+        hamburger.addEventListener('click', function() {
+            menuItems.classList.toggle('active');
+        });
+        
+        // Close menu when a link is clicked
+        document.querySelectorAll('#menuItems a').forEach(link => {
+            link.addEventListener('click', function() {
+                menuItems.classList.remove('active');
+            });
         });
     </script>
 </body>
