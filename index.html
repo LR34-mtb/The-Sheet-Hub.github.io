@@ -38,6 +38,20 @@
             font-weight: bold;
         }
         
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
         nav ul {
             list-style: none;
             display: flex;
@@ -177,7 +191,32 @@
             }
             
             nav ul {
-                gap: 1rem;
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+                padding: 1rem 0;
+            }
+            
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            
+            .hamburger {
+                display: flex;
             }
         }
     </style>
@@ -186,7 +225,12 @@
     <header>
         <nav>
             <div class="logo">📊 The Sheet Hub</div>
-            <ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="menuItems">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sheets.html">Sheets</a></li>
                 <li><a href="request.html">Request</a></li>
@@ -256,5 +300,20 @@
     <footer>
         <p>&copy; 2026 The Sheet Hub. Created by Leo Ragone. All rights reserved.</p>
     </footer>
+    
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menuItems = document.getElementById('menuItems');
+        
+        hamburger.addEventListener('click', function() {
+            menuItems.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('#menuItems a').forEach(link => {
+            link.addEventListener('click', function() {
+                menuItems.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
