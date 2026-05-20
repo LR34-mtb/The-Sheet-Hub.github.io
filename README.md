@@ -1,5 +1,15 @@
 # The Sheet Hub
 
-Welcome to The Sheet Hub website!
+Welcome to The Sheet Hub - Your go-to resource for detailed comparisons of products and equipment.
 
-This is your homepage. You can edit this file to customize your site.
+Created by Leo Ragone.
+
+## Available Sheets
+- 🚵 Enduro Frames
+- 🔧 Forks
+- ⚙️ Shocks
+- 🛑 Brakes
+- 🎮 Gaming Controllers
+- ⚡ E-Bikes
+
+Visit the website to explore all comparison sheets and request new ones!
